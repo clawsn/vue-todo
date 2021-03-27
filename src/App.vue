@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <Header title="Tast Tracker" />
-    <Tasks :tasks="tasks" />
-    <!-- <p>this is sub heading</p> -->
+    <Header title="Task Tracker" />
+    <Tasks @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks" />
+    <h3>{{tasks.length == 0 ? 'No new reminders' : '' }}</h3>
   </div>
 </template>
 
@@ -20,25 +20,42 @@ export default {
       tasks: []
     };
   },
+  methods: {
+    deleteTask(id) {
+      console.log("hit delete");
+      this.tasks = this.tasks.filter(task => task.id !== id);
+    },
+    toggleReminder(id) {
+      this.tasks = this.tasks.map(task =>
+        task.id === id ? { ...task, reminder: !task.reminder } : task
+      );
+    }
+  },
   created() {
     this.tasks = [
       {
         id: 1,
         text: "Task 1",
         day: "Monday",
-        reminder: true
+        reminder: false,
+        warning: "Are you sure?",
+        active: true
       },
       {
         id: 2,
         text: "Task 2",
         day: "Tuesday",
-        reminder: true
+        reminder: false,
+        warning: "Are you sure?",
+        active: false
       },
       {
         id: 3,
         text: "Task 3",
         day: "Wednesday",
-        reminder: false
+        reminder: false,
+        warning: "Are you sure?",
+        active: false
       }
     ];
   }
