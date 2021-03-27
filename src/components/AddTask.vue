@@ -16,3 +16,35 @@
     <input type="submit" value="Save Task" class="btn btn-block" />
   </form>
 </template>
+
+<script>
+export default {
+  name: "AddTask",
+  data() {
+    return {
+      text: "",
+      day: "",
+      reminder: false
+    };
+  },
+  methods: {
+    onSubmit(e) {
+      e.preventDefault();
+      if (!this.text) {
+        alert("Please add a task");
+        return;
+      }
+      const newTask = {
+        id: Math.floor(Math.random() * 100000),
+        text: this.text,
+        day: this.day,
+        reminder: this.reminder
+      };
+      this.$emit("add-task", newTask);
+      this.text = "";
+      this.day = "";
+      this.reminder = false;
+    }
+  }
+};
+</script>
