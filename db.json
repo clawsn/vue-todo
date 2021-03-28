@@ -1,34 +1,10 @@
 {
   "tasks": [
     {
-      "id": "3",
-      "text": "Food shopping",
-      "day": "March 7th at 2:00pm",
-      "reminder": false
-    },
-    {
-      "text": "Grocery Shopping",
-      "day": "Monday at 1:00pm",
+      "text": "Task 1",
+      "day": "Task 1 on Monday at 3:00pm",
       "reminder": true,
-      "id": "gKM0Itz"
-    },
-    {
-      "text": "asdfasdf",
-      "day": "sdfasdfasdfa",
-      "reminder": true,
-      "id": "mwpfyA8"
-    },
-    {
-      "text": "gsdfgsdfg",
-      "day": "dfgsdfgsdfg",
-      "reminder": true,
-      "id": "tZNFDFR"
-    },
-    {
-      "text": "dfasdfasdf",
-      "day": "sdfasdf",
-      "reminder": false,
-      "id": "I3dKBw5"
+      "id": 1
     }
   ]
 }
